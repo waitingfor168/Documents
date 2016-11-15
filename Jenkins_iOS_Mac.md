@@ -54,12 +54,14 @@ Jenkins For iOS By Mac
 ![如图](images/Jenkins_iOS_Mac/000012.jpg)
 5.点击【增加构建步骤】增加Xcode构建（Xcode integration插件起作用了）；
 ![如图](images/Jenkins_iOS_Mac/000011.jpg)
-6.Xcode 全局配置，这里的`$(...)`是系统变量也可以是自定义的变量：
+6.Xcode 全局配置，这里的`$(...)`是系统变量也可以是自定义的变量,【Target】和【Configuration】可以在项目的更目录下通过`xcodebuild -list`命令得到：
 ![如图](images/Jenkins_iOS_Mac/00006.jpg)
 7.Xcode 证书打包配置（目前使用Xcode的不同版本Target的不同证书配置，这一步就省事多了）：
 ![如图](images/Jenkins_iOS_Mac/00007.jpg)
-8.Xcode 编译前的配置：
+8.Xcode 编译前的配置，【Scheme】可以在项目的更目录下通过`xcodebuild -list`命令得到：
 ![如图](images/Jenkins_iOS_Mac/00008.jpg)
+如果是【WorkSpace】项目，使用如下配置：
+![如图](images/Jenkins_iOS_Mac/000016.jpg)
 9.也可点击【增加构建步骤】添加【Execute shell】脚本，并且顺序可以移动调整：
 ![如图](images/Jenkins_iOS_Mac/00009.jpg)
 10.Xcode 编译完成后的配置：
@@ -73,3 +75,10 @@ ${targetName}，${SHORT_VERSION}，${JOB_NAME}_${VERSION}_${BUILD_DATE}_${BUILD_
 等
 
 2.自定义的变量如上的参数化构建。
+
+### 备注
+1.XcodeBuild部分命令：
+
+`xcodebuild -version`
+
+`xcodebuild -list`
